@@ -57,14 +57,38 @@ class ViewController: UIViewController {
         self.activityImg3 = imageViewActivity3
         self.activityImg4 = imageViewActivity4
         
-        view.addSubview(activityImg1)
-        view.addSubview(activityImg2)
-        view.addSubview(activityImg3)
-        view.addSubview(activityImg4)
         
-        drawCircle()
+        let centreView = UIView()
+               let centreFrame = CGRect(x: (self.view.frame.size.width/2) - 5, y: (self.view.frame.size.height/2) - 5, width: 10, height: 10)
+centreView.frame = centreFrame
+        centreView.backgroundColor = UIColor.orange
+        self.view.addSubview(centreView)
         
-        roatateOnce()
+//        view.addSubview(activityImg1)
+//        view.addSubview(activityImg2)
+//        view.addSubview(activityImg3)
+//        view.addSubview(activityImg4)
+        
+        
+        //drawCircle()
+        /*
+        drawCircle2()
+       drawCircle3()
+        drawCircle5()
+        */
+        
+        
+        //drawCircle4()
+        //rep()
+        
+        //roatateOnce()
+        
+        let size = CGFloat(150)
+        
+       drawLab(percentage: 0.1, size: size, duration: 5)
+        drawLab(percentage: 0.95, size: size * 0.9, duration: 2)
+        drawLab(percentage: 0.75, size: size * 0.8, duration: 3)
+        drawLab(percentage: 0.85, size: size * 0.7, duration: 4)
 
     }
 
@@ -115,19 +139,60 @@ class ViewController: UIViewController {
     
     }
     
+
+    func drawLab(percentage: Double, size: CGFloat,  duration: Double){
     
-    
-    func drawCircle(){
-    
-        let percentCircle = 0.75
+        
+        let percentCircle = percentage
         let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
-        let circleRadius = CGFloat(150)
+        let circleRadius = size
         let startAngle = CGFloat(0)
         let endAngle = CGFloat((M_PI * 2 * percentCircle))
         
-        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
-        
 
+        
+         let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 2
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.bounds =  shapeLayer.frame
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = startAngle
+            animation.toValue = Float.pi * 2
+            animation.duration = duration
+            animation.repeatCount = Float.infinity
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+    
+    }
+    
+    func drawCircle(){
+    
+        let percentCircle = 0.1
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(120)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        //let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        //let arcWidth: CGFloat = 76
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
@@ -138,16 +203,21 @@ class ViewController: UIViewController {
         shapeLayer.strokeColor = UIColor.red.cgColor
         //you can change the line width
         shapeLayer.lineWidth = 2.0
-        //shapeLayer.backgroundColor = UIColor.orange.cgColor
-        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
-        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
-        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        //shapeLayer.backgroundColor = UIColor.lightGray.cgColor
+        let shapeWidth = CGFloat(60)
+        let shapeHeight = CGFloat(60)
+        
+        let theFrame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        
+        
+        shapeLayer.frame = theFrame
         
         //let screenCenter = CGRect(x: self.view.bounds.size.width/2, y: self.view.bounds.size.height/2, width: 100, height: 100)
-        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        shapeLayer.bounds = shapeLayer.frame
+        shapeLayer.backgroundColor = UIColor.lightGray.cgColor
         //shapeLayer.bounds = CGRect(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2, width: (shapeLayer.path?.boundingBoxOfPath.width)!, height: (shapeLayer.path?.boundingBoxOfPath.height)!)
         self.view.layer.addSublayer(shapeLayer)
-
+//
         
         /*
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -163,9 +233,9 @@ class ViewController: UIViewController {
         
         let rotationAnimation: CAAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-            animation.fromValue = 0
-            animation.toValue = M_PI * 2
-            animation.duration = 4
+            animation.fromValue = startAngle
+            animation.toValue = Float.pi * 2
+            animation.duration = 2
             animation.repeatCount = MAXFLOAT
             return animation
         }()
@@ -173,15 +243,15 @@ class ViewController: UIViewController {
         shapeLayer.add(rotationAnimation, forKey: "rotation")
         
         /*
-        shapeLayer.strokeEnd = (CGFloat(M_PI * 2 * percentCircle))
-        // Then apply the animation.
-        var drawAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-        drawAnimation.duration = 10
-        drawAnimation.fromValue = CGPoint(x: 0, y: 0)
-        drawAnimation.toValue = CGPoint(x: 100, y: 100)
-        drawAnimation.repeatCount = Float.infinity
-        //drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        shapeLayer.add(drawAnimation, forKey: nil)
+         shapeLayer.strokeEnd = (CGFloat(M_PI * 2 * percentCircle))
+         // Then apply the animation.
+         var drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
+         drawAnimation.duration = 1
+         drawAnimation.fromValue = Int(startAngle)
+         drawAnimation.toValue = Int(endAngle)
+        drawAnimation.repeatCount = Float(CGFloat.infinity)
+         drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+         shapeLayer.add(drawAnimation, forKey: "drawCircleAnimation")
     */
 /*
  
@@ -229,9 +299,214 @@ class ViewController: UIViewController {
  
     }
     
-    
- 
+    func drawCircle2(){
+        
+        let percentCircle = 0.75
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(120)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
 
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.orange.cgColor
+        shapeLayer.lineWidth = 2.0
+       // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
+        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = 0
+            animation.toValue = M_PI * 2
+            animation.duration = 4
+            animation.repeatCount = MAXFLOAT
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+      
+    }
+
+    func drawCircle3(){
+        
+        let percentCircle = 0.85
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(100)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.orange.cgColor
+        shapeLayer.lineWidth = 2.0
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
+        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = 0
+            animation.toValue = M_PI * 2
+            animation.duration = 3
+            animation.repeatCount = MAXFLOAT
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+        
+    }
+    
+    func drawCircle4(){
+        
+        let percentCircle = 0.75
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(150)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.white.cgColor
+        shapeLayer.lineWidth = 4
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
+        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = 0
+            animation.toValue = M_PI * 2
+            animation.duration = 4
+            animation.repeatCount = MAXFLOAT
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+        
+    }
+    
+    func drawCircle5(){
+        
+        let percentCircle = 0.8
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(170)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: CGFloat(-M_PI_2), endAngle:CGFloat(M_PI * 2 * percentCircle - M_PI_2), clockwise: true)
+
+       // let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.blue.cgColor
+        shapeLayer.lineWidth = 2
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
+        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = 0
+            animation.toValue = M_PI * 2
+            animation.duration = 5
+            animation.repeatCount = MAXFLOAT
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+        
+    }
+    
+    
+    func rep(){
+        
+        let replicatorLayer = CAReplicatorLayer()
+        replicatorLayer.frame = self.view.bounds
+        
+        // 2
+        replicatorLayer.instanceCount = 30
+        replicatorLayer.instanceDelay = CFTimeInterval(1 / 30.0)
+        replicatorLayer.preservesDepth = false
+        replicatorLayer.instanceColor = UIColor.white.cgColor
+        
+        // 3
+        replicatorLayer.instanceRedOffset = 0.0
+        replicatorLayer.instanceGreenOffset = -0.5
+        replicatorLayer.instanceBlueOffset = -0.5
+        replicatorLayer.instanceAlphaOffset = 0.0
+        
+        // 4
+        let angle = Float(M_PI * 2.0) / 70
+        replicatorLayer.instanceTransform = CATransform3DMakeRotation(CGFloat(angle * 2), 0.0, 0.0, 1.0)
+        self.view.layer.addSublayer(replicatorLayer)
+        
+        // 5
+        let instanceLayer = CALayer()
+        let layerWidth: CGFloat = 10.0
+        let midX = self.view.bounds.midX - layerWidth / 2.0
+        instanceLayer.frame = CGRect(x: midX, y: 0.0, width: layerWidth, height: layerWidth * 3.0)
+        instanceLayer.backgroundColor = UIColor.white.cgColor
+        replicatorLayer.addSublayer(instanceLayer)
+        
+        /*
+        // 6
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.fromValue = 1.0
+        fadeAnimation.toValue = 0.0
+        fadeAnimation.duration = 1
+        fadeAnimation.repeatCount = Float(Int.max)
+        
+        // 7
+        instanceLayer.opacity = 0.0
+        instanceLayer.add(fadeAnimation, forKey: "FadeAnimation")
+    */
+    
+    }
 
 }
 
