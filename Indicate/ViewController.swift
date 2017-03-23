@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
     
@@ -61,6 +62,7 @@ class ViewController: UIViewController {
         view.addSubview(activityImg3)
         view.addSubview(activityImg4)
         
+        drawCircle()
         
         roatateOnce()
 
@@ -70,6 +72,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
     func roatateOnce(){
         UIView.animate(withDuration: 2, delay: 0, options: .curveLinear, animations: {() -> Void in
@@ -110,7 +114,123 @@ class ViewController: UIViewController {
     
     
     }
+    
+    
+    
+    func drawCircle(){
+    
+        let percentCircle = 0.75
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = CGFloat(150)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
 
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        //change the fill color
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        //you can change the line width
+        shapeLayer.lineWidth = 2.0
+        //shapeLayer.backgroundColor = UIColor.orange.cgColor
+        let shapeWidth = shapeLayer.path!.boundingBoxOfPath.width
+        let shapeHeight = shapeLayer.path!.boundingBoxOfPath.height
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (shapeWidth/2), y: (self.view.frame.size.height/2) - (shapeHeight)/2, width: shapeLayer.path!.boundingBoxOfPath.width, height: shapeLayer.path!.boundingBoxOfPath.height)
+        
+        //let screenCenter = CGRect(x: self.view.bounds.size.width/2, y: self.view.bounds.size.height/2, width: 100, height: 100)
+        shapeLayer.bounds = shapeLayer.path!.boundingBoxOfPath
+        //shapeLayer.bounds = CGRect(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2, width: (shapeLayer.path?.boundingBoxOfPath.width)!, height: (shapeLayer.path?.boundingBoxOfPath.height)!)
+        self.view.layer.addSublayer(shapeLayer)
+
+        
+        /*
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(M_PI * 2.0)
+        rotateAnimation.duration = 1.0
+        rotateAnimation.repeatCount = Float.infinity
+        shapeLayer.add(rotateAnimation, forKey: nil)
+        */
+        
+       // CATransform3D current = myLayer.transform;
+   
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = 0
+            animation.toValue = M_PI * 2
+            animation.duration = 4
+            animation.repeatCount = MAXFLOAT
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+        /*
+        shapeLayer.strokeEnd = (CGFloat(M_PI * 2 * percentCircle))
+        // Then apply the animation.
+        var drawAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        drawAnimation.duration = 10
+        drawAnimation.fromValue = CGPoint(x: 0, y: 0)
+        drawAnimation.toValue = CGPoint(x: 100, y: 100)
+        drawAnimation.repeatCount = Float.infinity
+        //drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer.add(drawAnimation, forKey: nil)
+    */
+/*
+ 
+        let spinAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        //spinAnimation.byValue = 1//Int(2.0 * .pi)
+  
+        spinAnimation.toValue = M_PI_2
+        spinAnimation.duration = 4
+        spinAnimation.repeatCount = .infinity
+        shapeLayer.add(spinAnimation, forKey: "indeterminateAnimation")
+ 
+ 
+ */
+ 
+        /*
+        UIView.animate(withDuration: 2, delay: 3, options: .curveLinear, animations: {() -> Void in
+            var myRotationTransform: CATransform3D = CATransform3DRotate(shapeLayer.transform, (CGFloat(M_PI_2) * 0.85),     //experiment with flatness
+                1.0,     // rotate only across the x-axis
+                0.0,     // no y-axis transform
+                0.0)
+            //  no z-axis transform
+            shapeLayer.transform = myRotationTransform
+        }, completion: nil)
+*/
+        
+        /*
+        let start = CGPoint(x: 100, y: 100)
+        let middle = CGPoint(x: 450, y: 380)
+        let end = CGPoint(x: 200, y: 200)
+        
+        var path = UIBezierPath()
+        path.move(to: start)
+       path.addLine(to: middle)
+        path.addLine(to: end)
+        
+        //design path in layer
+        var shapeLayerr = CAShapeLayer()
+        shapeLayerr.path = path.cgPath
+        shapeLayerr.strokeColor = UIColor.orange.cgColor
+        shapeLayerr.fillColor = UIColor.blue.cgColor
+        shapeLayerr.lineWidth = 3
+        
+        view.layer.addSublayer(shapeLayerr)
+ */
+ 
+    }
+    
+    
+ 
 
 
 }
