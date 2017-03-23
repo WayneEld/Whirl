@@ -21,6 +21,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.//
     }
     
+    @IBAction func btnRandomAction(_ sender: Any) {
+        
+        self.view.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
+        self.viewWillAppear(true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -83,12 +88,25 @@ centreView.frame = centreFrame
         
         //roatateOnce()
         
-        let size = CGFloat(150)
+        let size = CGFloat(100)
+
         
-       drawLab(percentage: 0.1, size: size, duration: 5)
-        drawLab(percentage: 0.95, size: size * 0.9, duration: 2)
-        drawLab(percentage: 0.75, size: size * 0.8, duration: 3)
-        drawLab(percentage: 0.85, size: size * 0.7, duration: 4)
+       drawLab(percentage: randomPercentage(), size: size, duration: randomDuration())
+        drawLab(percentage: randomPercentage(), size: size * 0.8, duration: randomDuration())
+        drawLab(percentage: randomPercentage(), size: size * 0.6, duration: randomDuration())
+        drawLab(percentage: randomPercentage(), size: size * 0.4, duration: randomDuration())
+        drawLab(percentage: randomPercentage(), size: size * 0.2, duration: randomDuration())
+ 
+        /*
+        drawLab(percentage: 0.1, size: size, duration: 5)
+        drawLab(percentage: 0.1, size: size, duration: 4)
+        drawLab(percentage: 0.1, size: size, duration: 2)
+        drawLab(percentage: 0.3, size: size, duration: 2)
+        drawLab(percentage: 0.1, size: size, duration: 3)
+        */
+        
+        //drawLab(percentage: 0.8, size: size, duration: 3)
+        //drawLabAnti(percentage: 0.2, size: size * 0.9, duration: 3)
 
     }
 
@@ -97,7 +115,19 @@ centreView.frame = centreFrame
         // Dispose of any resources that can be recreated.
     }
     
+    func randomPercentage() -> Double{
+    
+    let randomPercentage = Double(arc4random_uniform(100))
+        print(randomPercentage)
+        return randomPercentage/100
+    }
+    
+    func randomDuration() -> Double{
+        
+        let randomDuration = Double(arc4random_uniform(100))
 
+        return (randomDuration/100 * 5)
+    }
     
     func roatateOnce(){
         UIView.animate(withDuration: 2, delay: 0, options: .curveLinear, animations: {() -> Void in
@@ -147,6 +177,7 @@ centreView.frame = centreFrame
         let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
         let circleRadius = size
         let startAngle = CGFloat(0)
+
         let endAngle = CGFloat((M_PI * 2 * percentCircle))
         
 
@@ -179,6 +210,57 @@ centreView.frame = centreFrame
         
         shapeLayer.add(rotationAnimation, forKey: "rotation")
     
+    }
+    
+    func drawLabAnti(percentage: Double, size: CGFloat,  duration: Double){
+        
+        
+        let percentCircle = percentage
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = size
+        let startAngle = CGFloat(Float.pi) + CGFloat(Float.pi)
+        let endAngle = CGFloat(M_PI * 2  * percentCircle) + CGFloat(Float.pi)
+        
+
+        
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: false)
+        
+        
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 2
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.bounds =  shapeLayer.frame
+        self.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = startAngle
+            animation.toValue = Float.pi * 2
+            animation.duration = duration
+            animation.repeatCount = Float.infinity
+            return animation
+        }()
+        
+        //shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+        shapeLayer.strokeEnd = (CGFloat(M_PI * 2 * percentCircle))
+        // Then apply the animation.
+        var drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation.duration = 1
+        drawAnimation.fromValue = Int(startAngle)
+        drawAnimation.toValue = Int(endAngle)
+        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer.add(drawAnimation, forKey: "drawCircleAnimation")
+        
     }
     
     func drawCircle(){
