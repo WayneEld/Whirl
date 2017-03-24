@@ -15,15 +15,56 @@ class LabIndicator {
     static let lineColor = UIColor.black.cgColor
     static let labSize = CGFloat(30)
     static let currentView = UIApplication.shared.windows[0].rootViewController
+    static let drawDuration = CFTimeInterval(0)
+    
+    static var backDrop = UIView()
+    static var circle1 = CAShapeLayer()
+    static var circle2 = CAShapeLayer()
+    
+    struct Circle3 {
+      static var circle3_1 = CAShapeLayer()
+        static var circle3_2 = CAShapeLayer()
+        static var circle3_3 = CAShapeLayer()
+        static var circle3_4 = CAShapeLayer()
+    }
+    
+    struct Circle4 {
+        static var circle4_1 = CAShapeLayer()
+        static var circle4_2 = CAShapeLayer()
+        static var circle4_3 = CAShapeLayer()
+        static var circle4_4 = CAShapeLayer()
+        static var circle4_5 = CAShapeLayer()
+    }
 
     public func showIndicator(){
     
         drawBackDrop()
-        drawLab(percentage: 0.95, size: LabIndicator.labSize, duration: 5)
-        drawLab(percentage: 0.75, size: LabIndicator.labSize * 0.8, duration: 3)
-        drawLab1(size: LabIndicator.labSize * 0.6, duration: 3.5)
-        drawLab2(size: LabIndicator.labSize * 0.4, duration: 4)
+        drawLab1(percentage: 0.95, size: LabIndicator.labSize, duration: 5)
+        drawLab2(percentage: 0.75, size: LabIndicator.labSize * 0.8, duration: 3)
+        drawLab3(size: LabIndicator.labSize * 0.6, duration: 3.5)
+        drawLab4(size: LabIndicator.labSize * 0.4, duration: 4)
     
+    
+    }
+    
+    public func hideIndicator(){
+    
+        LabIndicator.backDrop.removeFromSuperview()
+        LabIndicator.circle1.removeFromSuperlayer()
+        LabIndicator.circle2.removeFromSuperlayer()
+        
+        //-Circle 3
+        LabIndicator.Circle3.circle3_1.removeFromSuperlayer()
+        LabIndicator.Circle3.circle3_2.removeFromSuperlayer()
+        LabIndicator.Circle3.circle3_3.removeFromSuperlayer()
+        LabIndicator.Circle3.circle3_4.removeFromSuperlayer()
+        
+        //--Circle 4
+         LabIndicator.Circle4.circle4_1.removeFromSuperlayer()
+        LabIndicator.Circle4.circle4_2.removeFromSuperlayer()
+        LabIndicator.Circle4.circle4_3.removeFromSuperlayer()
+        LabIndicator.Circle4.circle4_4.removeFromSuperlayer()
+        LabIndicator.Circle4.circle4_5.removeFromSuperlayer()
     
     }
     
@@ -44,11 +85,12 @@ class LabIndicator {
         
         
         LabIndicator.currentView?.view.addSubview(backDropView)
+        LabIndicator.backDrop = backDropView
         
         
     }
     
-    func drawLab(percentage: Double, size: CGFloat,  duration: Double){
+    func drawLab1(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
         let circleCenter = CGPoint(x:  (LabIndicator.currentView?.view.frame.size.width)!/2, y:  (LabIndicator.currentView?.view.frame.size.height)!/2)
@@ -81,10 +123,64 @@ class LabIndicator {
         }()
         
         shapeLayer.add(rotationAnimation, forKey: "rotation")
+        LabIndicator.circle1 = shapeLayer
+        
+        shapeLayer.strokeEnd = endAngle
+        let drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation.duration = LabIndicator.drawDuration
+        drawAnimation.fromValue = Int(startAngle)
+        drawAnimation.toValue = Int(endAngle)
+        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer.add(drawAnimation, forKey: nil)
         
     }
     
-    func drawLab1(size: CGFloat,  duration: Double){
+    func drawLab2(percentage: Double, size: CGFloat,  duration: Double){
+        
+        let percentCircle = percentage
+        let circleCenter = CGPoint(x:  (LabIndicator.currentView?.view.frame.size.width)!/2, y:  (LabIndicator.currentView?.view.frame.size.height)!/2)
+        let circleRadius = size
+        let startAngle = CGFloat(0)
+        
+        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = LabIndicator.lineColor
+        shapeLayer.lineWidth = LabIndicator.lineWidth
+        
+        shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.bounds =  shapeLayer.frame
+        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = startAngle
+            animation.toValue = Float.pi * 2
+            animation.duration = duration
+            animation.repeatCount = Float.infinity
+            return animation
+        }()
+        
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+        LabIndicator.circle2 = shapeLayer
+        
+        shapeLayer.strokeEnd = endAngle
+        let drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation.duration = LabIndicator.drawDuration
+        drawAnimation.fromValue = Int(startAngle)
+        drawAnimation.toValue = Int(endAngle)
+        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer.add(drawAnimation, forKey: nil)
+        
+    }
+    
+    func drawLab3(size: CGFloat,  duration: Double){
         
         let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
@@ -122,7 +218,7 @@ class LabIndicator {
         
         shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+       LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
         
         
         //--Shape 2
@@ -162,7 +258,7 @@ class LabIndicator {
         
         shapeLayer4.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer4.bounds =  shapeLayer4.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer4)
+       LabIndicator.currentView?.view.layer.addSublayer(shapeLayer4)
         
         
         let rotationAnimation: CAAnimation = {
@@ -179,9 +275,55 @@ class LabIndicator {
         shapeLayer3.add(rotationAnimation, forKey: "rotation")
         shapeLayer4.add(rotationAnimation, forKey: "rotation")
         
+        
+        LabIndicator.Circle3.circle3_1 = shapeLayer
+        LabIndicator.Circle3.circle3_2 = shapeLayer2
+        LabIndicator.Circle3.circle3_3 = shapeLayer3
+        LabIndicator.Circle3.circle3_4 = shapeLayer4
+        
+        
+        
+        shapeLayer.strokeEnd = endAngle
+        let drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation.duration = LabIndicator.drawDuration
+        drawAnimation.fromValue = Int(startAngle)
+        drawAnimation.toValue = Int(endAngle)
+        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer.add(drawAnimation, forKey: "1")
+        
+        
+        
+        shapeLayer2.strokeEnd = endAngle2
+        let drawAnimation2 = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation2.duration = LabIndicator.drawDuration
+        drawAnimation2.fromValue = Int(startAngle2)
+        drawAnimation2.toValue = Int(endAngle2)
+        drawAnimation2.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer2.add(drawAnimation2, forKey: "2")
+        
+        
+        /*
+        shapeLayer3.strokeEnd = endAngle3
+        let drawAnimation3 = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation3.duration = LabIndicator.drawDuration
+        drawAnimation3.fromValue = Int(startAngle3)
+        drawAnimation3.toValue = Int(endAngle3)
+        drawAnimation3.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer3.add(drawAnimation3, forKey: nil)
+        */
+        /*
+        shapeLayer4.strokeEnd = endAngle4
+        let drawAnimation4 = CABasicAnimation(keyPath: "strokeEnd")
+        drawAnimation4.duration = LabIndicator.drawDuration
+        drawAnimation4.fromValue = Int(startAngle4)
+        drawAnimation4.toValue = Int(endAngle4)
+        drawAnimation4.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        shapeLayer4.add(drawAnimation4, forKey: nil)
+        */
+        
     }
     
-    func drawLab2(size: CGFloat,  duration: Double){
+    func drawLab4(size: CGFloat,  duration: Double){
         
         let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
@@ -296,6 +438,14 @@ class LabIndicator {
         shapeLayer3.add(rotationAnimation, forKey: nil)
         shapeLayer4.add(rotationAnimation, forKey: nil)
         shapeLayer5.add(rotationAnimation, forKey: nil)
+        
+        
+        LabIndicator.Circle4.circle4_1 = shapeLayer
+        LabIndicator.Circle4.circle4_2 = shapeLayer2
+        LabIndicator.Circle4.circle4_3 = shapeLayer3
+        LabIndicator.Circle4.circle4_4 = shapeLayer4
+        LabIndicator.Circle4.circle4_5 = shapeLayer5
+
         
     }
 

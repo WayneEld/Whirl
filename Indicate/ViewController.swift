@@ -25,13 +25,26 @@ class ViewController: UIViewController {
         
         let lab = LabIndicator()
         lab.showIndicator()
+        
+        
         /*
-        drawBackDrop()
-        drawLab(percentage: 0.95, size: labSize, duration: 5)
-       drawLab(percentage: 0.75, size: labSize * 0.8, duration: 3)
-        drawLab1(size: labSize * 0.6, duration: 3.5)
-        drawLab2(size: labSize * 0.4, duration: 4)
-        */
+       let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            lab.hideIndicator()
+        }
+ */
+ 
+ 
+        //hideIndicator
+        
+        
+        
+       // drawBackDrop()
+       // drawLab(percentage: 0.95, size: labSize, duration: 5)
+      // drawLab(percentage: 0.75, size: labSize * 0.8, duration: 3)
+       // drawLab1(size: labSize * 0.6, duration: 3.5)
+       // drawLab2(size: labSize * 0.4, duration: 4)
+        
 
     }
 
@@ -93,6 +106,8 @@ class ViewController: UIViewController {
         }()
         
         shapeLayer.add(rotationAnimation, forKey: "rotation")
+        
+
     
     }
     
