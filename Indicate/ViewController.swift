@@ -63,11 +63,11 @@ class ViewController: UIViewController {
         self.activityImg4 = imageViewActivity4
         
         
-        let centreView = UIView()
-               let centreFrame = CGRect(x: (self.view.frame.size.width/2) - 5, y: (self.view.frame.size.height/2) - 5, width: 10, height: 10)
-centreView.frame = centreFrame
-        centreView.backgroundColor = UIColor.orange
-        self.view.addSubview(centreView)
+//        let centreView = UIView()
+//               let centreFrame = CGRect(x: (self.view.frame.size.width/2) - 5, y: (self.view.frame.size.height/2) - 5, width: 10, height: 10)
+//centreView.frame = centreFrame
+//        centreView.backgroundColor = UIColor.orange
+//        self.view.addSubview(centreView)
         
 //        view.addSubview(activityImg1)
 //        view.addSubview(activityImg2)
@@ -88,7 +88,7 @@ centreView.frame = centreFrame
         
         //roatateOnce()
         
-        let size = CGFloat(50)
+        let size = CGFloat(200)
         
         
         drawLab(percentage: 0.95, size: size, duration: 5)
