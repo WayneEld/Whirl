@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SpriteKit
 
 class ViewController: UIViewController {
     
@@ -23,13 +22,16 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-    drawBackDrop()
-
+        
+        let lab = LabIndicator()
+        lab.showIndicator()
+        /*
+        drawBackDrop()
         drawLab(percentage: 0.95, size: labSize, duration: 5)
        drawLab(percentage: 0.75, size: labSize * 0.8, duration: 3)
         drawLab1(size: labSize * 0.6, duration: 3.5)
         drawLab2(size: labSize * 0.4, duration: 4)
-        
+        */
 
     }
 
@@ -57,8 +59,6 @@ class ViewController: UIViewController {
         
     
     }
-
-    
 
     func drawLab(percentage: Double, size: CGFloat,  duration: Double){
 
