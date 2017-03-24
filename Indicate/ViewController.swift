@@ -88,14 +88,22 @@ centreView.frame = centreFrame
         
         //roatateOnce()
         
-        let size = CGFloat(100)
-
+        let size = CGFloat(50)
         
+        
+        drawLab(percentage: 0.95, size: size, duration: 5)
+       drawLab(percentage: 0.75, size: size * 0.8, duration: 3)
+        drawLab1(percentage: 0.2, size: size * 0.6, duration: 3.5)
+        drawLab2(percentage: 0.2, size: size * 0.4, duration: 4)
+        
+
+        /*
        drawLab(percentage: randomPercentage(), size: size, duration: randomDuration())
         drawLab(percentage: randomPercentage(), size: size * 0.8, duration: randomDuration())
         drawLab(percentage: randomPercentage(), size: size * 0.6, duration: randomDuration())
         drawLab(percentage: randomPercentage(), size: size * 0.4, duration: randomDuration())
         drawLab(percentage: randomPercentage(), size: size * 0.2, duration: randomDuration())
+ */
  
         /*
         drawLab(percentage: 0.1, size: size, duration: 5)
@@ -212,22 +220,37 @@ centreView.frame = centreFrame
     
     }
     
-    func drawLabAnti(percentage: Double, size: CGFloat,  duration: Double){
+    func drawLab1(percentage: Double, size: CGFloat,  duration: Double){
         
         
         let percentCircle = percentage
         let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
         let circleRadius = size
-        let startAngle = CGFloat(Float.pi) + CGFloat(Float.pi)
-        let endAngle = CGFloat(M_PI * 2  * percentCircle) + CGFloat(Float.pi)
+        let startAngle = CGFloat(0)
+        let endAngle = CGFloat(Float.pi/2)
         
-
+        let startAngle2 = CGFloat((Float.pi * 2)/3)
+        let endAngle2 = CGFloat((Float.pi * 3)/4)
+        
+        let startAngle3 = CGFloat((Float.pi * 5)/6)
+        let endAngle3 = CGFloat((Float.pi * 3)/2)
+        
+        let startAngle4 = CGFloat((Float.pi * 5)/3)
+        let endAngle4 = CGFloat((Float.pi * 11)/6)
         
         
-        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: false)
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+          let circlePath2 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle2, endAngle:endAngle2, clockwise: true)
+        
+         let circlePath3 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle3, endAngle:endAngle3, clockwise: true)
+        
+          let circlePath4 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle4, endAngle:endAngle4, clockwise: true)
         
         
         
+        //--Shape 1
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
         
@@ -241,6 +264,47 @@ centreView.frame = centreFrame
         shapeLayer.bounds =  shapeLayer.frame
         self.view.layer.addSublayer(shapeLayer)
         
+        
+        //--Shape 2
+        let shapeLayer2 = CAShapeLayer()
+        shapeLayer2.path = circlePath2.cgPath
+        
+        
+        shapeLayer2.fillColor = UIColor.clear.cgColor
+        shapeLayer2.strokeColor = UIColor.black.cgColor
+        shapeLayer2.lineWidth = 2
+        
+        shapeLayer2.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer2.bounds =  shapeLayer2.frame
+        self.view.layer.addSublayer(shapeLayer2)
+        
+        //--Shape 3
+        let shapeLayer3 = CAShapeLayer()
+        shapeLayer3.path = circlePath3.cgPath
+        
+        
+        shapeLayer3.fillColor = UIColor.clear.cgColor
+        shapeLayer3.strokeColor = UIColor.black.cgColor
+        shapeLayer3.lineWidth = 2
+        
+        shapeLayer3.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer3.bounds =  shapeLayer3.frame
+        self.view.layer.addSublayer(shapeLayer3)
+        
+        //--Shape 4
+        let shapeLayer4 = CAShapeLayer()
+        shapeLayer4.path = circlePath4.cgPath
+        
+        
+        shapeLayer4.fillColor = UIColor.clear.cgColor
+        shapeLayer4.strokeColor = UIColor.black.cgColor
+        shapeLayer4.lineWidth = 2
+        
+        shapeLayer4.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer4.bounds =  shapeLayer4.frame
+        self.view.layer.addSublayer(shapeLayer4)
+        
+        
         let rotationAnimation: CAAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")
             animation.fromValue = startAngle
@@ -250,16 +314,132 @@ centreView.frame = centreFrame
             return animation
         }()
         
-        //shapeLayer.add(rotationAnimation, forKey: "rotation")
+        shapeLayer.add(rotationAnimation, forKey: "rotation")
+         shapeLayer2.add(rotationAnimation, forKey: "rotation")
+         shapeLayer3.add(rotationAnimation, forKey: "rotation")
+         shapeLayer4.add(rotationAnimation, forKey: "rotation")
         
-        shapeLayer.strokeEnd = (CGFloat(M_PI * 2 * percentCircle))
-        // Then apply the animation.
-        var drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        drawAnimation.duration = 1
-        drawAnimation.fromValue = Int(startAngle)
-        drawAnimation.toValue = Int(endAngle)
-        drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        shapeLayer.add(drawAnimation, forKey: "drawCircleAnimation")
+    }
+    
+    func drawLab2(percentage: Double, size: CGFloat,  duration: Double){
+        
+        
+        let percentCircle = percentage
+        let circleCenter = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height/2)
+        let circleRadius = size
+        let startAngle = CGFloat((Float.pi * 11)/6)
+        let endAngle = CGFloat((Float.pi )/6)
+        
+        let startAngle2 = CGFloat((Float.pi)/4)
+        let endAngle2 = CGFloat((Float.pi )/3)
+        
+        let startAngle3 = CGFloat((Float.pi )/2)
+        let endAngle3 = CGFloat((Float.pi * 2)/3)
+        
+        let startAngle4 = CGFloat((Float.pi * 3)/4)
+        let endAngle4 = CGFloat((Float.pi * 5)/4)
+        
+        let startAngle5 = CGFloat((Float.pi * 4)/3)
+        let endAngle5 = CGFloat((Float.pi * 7)/4)
+        
+        
+        
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
+        
+        let circlePath2 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle2, endAngle:endAngle2, clockwise: true)
+        
+        let circlePath3 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle3, endAngle:endAngle3, clockwise: true)
+        
+        let circlePath4 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle4, endAngle:endAngle4, clockwise: true)
+        
+                let circlePath5 = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle5, endAngle:endAngle5, clockwise: true)
+        
+        
+        
+        //--Shape 1
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 2
+        // shapeLayer.backgroundColor = UIColor.blue.cgColor
+        
+        shapeLayer.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.bounds =  shapeLayer.frame
+        self.view.layer.addSublayer(shapeLayer)
+        
+        
+        //--Shape 2
+        let shapeLayer2 = CAShapeLayer()
+        shapeLayer2.path = circlePath2.cgPath
+        
+        
+        shapeLayer2.fillColor = UIColor.clear.cgColor
+        shapeLayer2.strokeColor = UIColor.black.cgColor
+        shapeLayer2.lineWidth = 2
+        
+        shapeLayer2.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer2.bounds =  shapeLayer2.frame
+        self.view.layer.addSublayer(shapeLayer2)
+        
+        //--Shape 3
+        let shapeLayer3 = CAShapeLayer()
+        shapeLayer3.path = circlePath3.cgPath
+        
+        
+        shapeLayer3.fillColor = UIColor.clear.cgColor
+        shapeLayer3.strokeColor = UIColor.black.cgColor
+        shapeLayer3.lineWidth = 2
+        
+        shapeLayer3.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer3.bounds =  shapeLayer3.frame
+        self.view.layer.addSublayer(shapeLayer3)
+        
+        //--Shape 4
+        let shapeLayer4 = CAShapeLayer()
+        shapeLayer4.path = circlePath4.cgPath
+        
+        
+        shapeLayer4.fillColor = UIColor.clear.cgColor
+        shapeLayer4.strokeColor = UIColor.black.cgColor
+        shapeLayer4.lineWidth = 2
+        
+        shapeLayer4.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer4.bounds =  shapeLayer4.frame
+        self.view.layer.addSublayer(shapeLayer4)
+        
+        //--Shape 5
+        let shapeLayer5 = CAShapeLayer()
+        shapeLayer5.path = circlePath5.cgPath
+        
+        
+        shapeLayer5.fillColor = UIColor.clear.cgColor
+        shapeLayer5.strokeColor = UIColor.black.cgColor
+        shapeLayer5.lineWidth = 2
+        
+        shapeLayer5.frame = CGRect(x: (self.view.frame.size.width/2) - (circleRadius/2), y: (self.view.frame.size.height/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer5.bounds =  shapeLayer5.frame
+        self.view.layer.addSublayer(shapeLayer5)
+        
+        
+        let rotationAnimation: CAAnimation = {
+            let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+            animation.fromValue = startAngle
+            animation.toValue = startAngle + CGFloat((Float.pi * 2))
+            animation.duration = duration
+            animation.repeatCount = Float.infinity
+            return animation
+        }()
+        
+ 
+        
+         shapeLayer.add(rotationAnimation, forKey: "rotation")
+         shapeLayer2.add(rotationAnimation, forKey: "rotation")
+         shapeLayer3.add(rotationAnimation, forKey: "rotation")
+        shapeLayer4.add(rotationAnimation, forKey: "rotation")
+        shapeLayer5.add(rotationAnimation, forKey: "rotation")
         
     }
     
