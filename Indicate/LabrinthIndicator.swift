@@ -21,6 +21,7 @@ class LabIndicator {
     static var circle1 = CAShapeLayer()
     static var circle2 = CAShapeLayer()
     
+    //MARK: - Circle 3 Strcuture
     struct Circle3 {
       static var circle3_1 = CAShapeLayer()
         static var circle3_2 = CAShapeLayer()
@@ -28,6 +29,7 @@ class LabIndicator {
         static var circle3_4 = CAShapeLayer()
     }
     
+    //MARK: - Circle 4 Strcuture
     struct Circle4 {
         static var circle4_1 = CAShapeLayer()
         static var circle4_2 = CAShapeLayer()
@@ -36,17 +38,23 @@ class LabIndicator {
         static var circle4_5 = CAShapeLayer()
     }
 
+    
+    //MARK: - Show Indicator
     public func showIndicator(){
     
+        //--Background View
         drawBackDrop()
+        
+        //--Drawn Circles
         drawLab1(percentage: 0.95, size: LabIndicator.labSize, duration: 5)
-        drawLab2(percentage: 0.75, size: LabIndicator.labSize * 0.8, duration: 3)
+        drawLab2(percentage: 0.85, size: LabIndicator.labSize * 0.8, duration: 3)
         drawLab3(size: LabIndicator.labSize * 0.6, duration: 3.5)
         drawLab4(size: LabIndicator.labSize * 0.4, duration: 4)
     
     
     }
     
+    //MARK: - Hide Indicator
     public func hideIndicator(){
     
         LabIndicator.backDrop.removeFromSuperview()
@@ -68,28 +76,37 @@ class LabIndicator {
     
     }
     
-    
+    //MARK: - Back Drop
     func drawBackDrop(){
         
-        
+        //--Back Drop View
         let backDropView = UIView()
-        let backDropSize = LabIndicator.labSize * 2.2
+        let backDropSize = LabIndicator.labSize * 2.4
         backDropView.frame = CGRect(x: (LabIndicator.currentView?.view.frame.size.width)!/2 - ((backDropSize)/2), y: (LabIndicator.currentView?.view.frame.size.height)!/2 - ((backDropSize)/2), width: (backDropSize), height: (backDropSize))
-        backDropView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+
         
         backDropView.layer.borderWidth = 1
         backDropView.layer.masksToBounds = false
-        backDropView.layer.borderColor = UIColor.lightGray.cgColor
+        backDropView.layer.borderColor = UIColor.clear.cgColor
         backDropView.layer.cornerRadius = backDropView.frame.height/2
         backDropView.clipsToBounds = true
         
-        
+        //--Adding back drop view
         LabIndicator.currentView?.view.addSubview(backDropView)
         LabIndicator.backDrop = backDropView
+        
+        //--Adding blurred view to back drop
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = backDropView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0.7
+        backDropView.addSubview(blurEffectView)
         
         
     }
     
+    //MARK: - Circle 1
     func drawLab1(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
@@ -97,7 +114,7 @@ class LabIndicator {
         let circleRadius = size
         let startAngle = CGFloat(0)
         
-        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        let endAngle = CGFloat((.pi * 2 * percentCircle))
         
         let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
         
@@ -135,6 +152,7 @@ class LabIndicator {
         
     }
     
+    //MARK: - Circle 2
     func drawLab2(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
@@ -142,7 +160,7 @@ class LabIndicator {
         let circleRadius = size
         let startAngle = CGFloat(0)
         
-        let endAngle = CGFloat((M_PI * 2 * percentCircle))
+        let endAngle = CGFloat((.pi * 2 * percentCircle))
         
         let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: startAngle, endAngle:endAngle, clockwise: true)
         
@@ -180,6 +198,7 @@ class LabIndicator {
         
     }
     
+    //MARK: - Circle 3
     func drawLab3(size: CGFloat,  duration: Double){
         
         let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
@@ -323,6 +342,7 @@ class LabIndicator {
         
     }
     
+    //MARK: - Circle 4
     func drawLab4(size: CGFloat,  duration: Double){
         
         let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
