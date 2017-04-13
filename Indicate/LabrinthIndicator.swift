@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class LabIndicator {
+public class LabIndicator {
+    
+    public init() {}
+    
     
     static let lineWidth = CGFloat(1)
     static let lineColor = UIColor.black.cgColor
