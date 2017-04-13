@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = 'Indicate'
+  spec.name         = 'indicate'
   spec.version      = '0.0.2'
   spec.license      = { :type => 'MIT' }
   spec.homepage     = 'https://github.com/WayneEld/Indicate'
