@@ -12,56 +12,64 @@ import Foundation
 public enum IndicateType {
      case labrinth
     case normal
+    
+    init(fromRawValue: IndicateType){
+        self = .normal
+    }
+    
 }
-
-
 
 
 public class Indicate {
     
-     static var indicatorTypee: IndicateType = .labrinth
+     static var activityType = IndicateType(fromRawValue: .normal)
+     let lab = LabIndicator()
+     static  var indicateType = Indicate.activityType
 
 
     public init(indicatorType: IndicateType){
-        Indicate.indicatorTypee = indicatorType
-
+        Indicate.activityType = indicatorType
     }
     
-    func constructIndicator(){
+    func startIndicator(){
+            constructIndicatorAndStart()
+     }
     
+    
+  private func constructIndicatorAndStart(){
         
-   let indicateType = Indicate.indicatorTypee
-
+           let indicateType = Indicate.activityType
     
         switch  indicateType{
         case .labrinth:
-            print("Lab")
-            let labrinthIndicator = LabIndicator()
-            startIndicator()
-            
-            
-            case .normal:
+            print("Lab start")
+       
+            lab.showIndicator()
+
+        case .normal:
             print("Nor")
-        default:
-            print("Def")
+
         }
-        
-        
-    
-    
+
     }
     
     
-    func startIndicator(){
+  public  func stopIndicator(){
     
         
+        let indicateType = Indicate.activityType
+        switch  indicateType{
+        case .labrinth:
+            print("Lab")
+
+            
+            lab.hideIndicator()
+            
+        case .normal:
+            print("Nor")
     
-    
-    }
-    
-    
-    func stopIndicator(){
-    
+        }
+
     
     
     }
