@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         let lab = LabIndicator()
         lab.showIndicator()
         
+        let ttt = Indicate(indicatorType: .labrinth)
+        
+        ttt.constructIndicator()
+        
         
         /*
        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds

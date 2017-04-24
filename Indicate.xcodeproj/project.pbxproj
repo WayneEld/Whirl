@@ -13,6 +13,7 @@
 		3D729D9B1E7C145A0008AABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D729D9A1E7C145A0008AABD /* Assets.xcassets */; };
 		3D729D9E1E7C145A0008AABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D729D9C1E7C145A0008AABD /* LaunchScreen.storyboard */; };
 		3DA22A701E851AC4004EBDC7 /* LabrinthIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA22A6F1E851AC4004EBDC7 /* LabrinthIndicator.swift */; };
+		3DC5CAFD1EA1FE88007BD82C /* Indicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5CAFC1EA1FE88007BD82C /* Indicate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3D729D9D1E7C145A0008AABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D729D9F1E7C145A0008AABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA22A6F1E851AC4004EBDC7 /* LabrinthIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabrinthIndicator.swift; sourceTree = "<group>"; };
+		3DC5CAFC1EA1FE88007BD82C /* Indicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				3D729D931E7C145A0008AABD /* AppDelegate.swift */,
 				3D729D951E7C145A0008AABD /* ViewController.swift */,
 				3DA22A6F1E851AC4004EBDC7 /* LabrinthIndicator.swift */,
+				3DC5CAFC1EA1FE88007BD82C /* Indicate.swift */,
 				3D729D971E7C145A0008AABD /* Main.storyboard */,
 				3D729D9A1E7C145A0008AABD /* Assets.xcassets */,
 				3D729D9C1E7C145A0008AABD /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			files = (
 				3DA22A701E851AC4004EBDC7 /* LabrinthIndicator.swift in Sources */,
 				3D729D961E7C145A0008AABD /* ViewController.swift in Sources */,
+				3DC5CAFD1EA1FE88007BD82C /* Indicate.swift in Sources */,
 				3D729D941E7C145A0008AABD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
