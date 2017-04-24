@@ -40,10 +40,25 @@ class Normal {
         UIView.animate(withDuration: withDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             Normal.backDrop.alpha = 0.0
             Normal.circle1.fillColor = UIColor.clear.cgColor
-             Normal.backDrop.removeFromSuperview()
-            Normal.circle1.removeFromSuperlayer()
+     
+            self.removeItemsFromSuperView(delay: withDuration * 1.1)
         }, completion: nil)
         
+    
+    }
+    
+    private func removeItemsFromSuperView(delay: TimeInterval){
+    
+        
+        let delay = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: delay) {
+            Normal.backDrop.removeFromSuperview()
+            Normal.circle1.removeFromSuperlayer()
+        }
+        
+  
+    
+    
     
     }
     

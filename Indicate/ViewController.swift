@@ -22,14 +22,14 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        let activityIndicator = Indicate(indicatorType: .labrinth)
+        let activityIndicator = Indicate(indicatorType: .normal)
         activityIndicator.startIndicator()
         
         
         
        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
-            //activityIndicator.stopIndicator()
+          //  activityIndicator.stopIndicator()
             activityIndicator.stopIndicatorAndFade(1)
         }
  
