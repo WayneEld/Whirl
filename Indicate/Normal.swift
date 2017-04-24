@@ -9,56 +9,44 @@
 import UIKit
 
 class Normal {
-
     
-    static let lineWidth = CGFloat(1)
+    
+    private static let lineWidth = CGFloat(1)
     static let lineColor = UIColor.black.cgColor
     static let size = CGFloat(70)
     static let drawDuration = CFTimeInterval(0)
     static var circle1 = CAShapeLayer()
-
-  static var backDrop = UIView()
+        static var backDrop = UIView()
     
     
     public func showIndicator(){
-        
-    drawBackDrop()
-    constructCircle(percentage: 0.8, size: Normal.size * 0.4, duration: 2)
-
-    }
-
+                drawBackDrop()
+        constructCircle(percentage: 0.8, size: Normal.size * 0.4, duration: 2)
+            }
+    
     
     public func hideIndicator(){
-    
-        Normal.backDrop.removeFromSuperview()
-         Normal.circle1.removeFromSuperlayer()
-        
-    }
+                Normal.backDrop.removeFromSuperview()
+        Normal.circle1.removeFromSuperlayer()
+            }
     
     public func hideIndicatorAndFade(withDuration: TimeInterval){
         
         UIView.animate(withDuration: withDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             Normal.backDrop.alpha = 0.0
             Normal.circle1.fillColor = UIColor.clear.cgColor
-     
-            self.removeItemsFromSuperView(delay: withDuration * 1.1)
+                        self.removeItemsFromSuperView(delay: withDuration * 1.1)
         }, completion: nil)
         
-    
     }
     
     private func removeItemsFromSuperView(delay: TimeInterval){
-    
-        
+
         let delay = DispatchTime.now() + delay
         DispatchQueue.main.asyncAfter(deadline: delay) {
             Normal.backDrop.removeFromSuperview()
             Normal.circle1.removeFromSuperlayer()
         }
-        
-  
-    
-    
     
     }
     
@@ -66,7 +54,7 @@ class Normal {
     
     
     //MARK: - Back Drop
-  private  func drawBackDrop(){
+    private  func drawBackDrop(){
         
         let currentView = Indicate.currentView
         
@@ -103,7 +91,7 @@ class Normal {
     }
     
     //MARK: - Circle
-    func constructCircle(percentage: Double, size: CGFloat,  duration: Double){
+    private func constructCircle(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
         let circleCenter = CGPoint(x:  (Indicate.currentView?.view.frame.size.width)!/2, y:  (Indicate.currentView?.view.frame.size.height)!/2)
@@ -148,5 +136,5 @@ class Normal {
         
     }
     
-
+    
 }
