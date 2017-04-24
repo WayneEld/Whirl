@@ -15,6 +15,7 @@ class Normal {
     static let lineColor = UIColor.black.cgColor
     static let size = CGFloat(70)
     static let drawDuration = CFTimeInterval(0)
+    static var circle1 = CAShapeLayer()
 
   static var backDrop = UIView()
     
@@ -26,6 +27,28 @@ class Normal {
 
     }
 
+    
+    public func hideIndicator(){
+    
+        Normal.backDrop.removeFromSuperview()
+         Normal.circle1.removeFromSuperlayer()
+        
+    }
+    
+    public func hideIndicatorAndFade(withDuration: TimeInterval){
+        
+        UIView.animate(withDuration: withDuration, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            Normal.backDrop.alpha = 0.0
+            Normal.circle1.fillColor = UIColor.clear.cgColor
+             Normal.backDrop.removeFromSuperview()
+            Normal.circle1.removeFromSuperlayer()
+        }, completion: nil)
+        
+    
+    }
+    
+    
+    
     
     //MARK: - Back Drop
   private  func drawBackDrop(){
@@ -87,6 +110,7 @@ class Normal {
         shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
         Indicate.currentView?.view.layer.addSublayer(shapeLayer)
+        Normal.circle1 = shapeLayer
         
         let rotationAnimation: CAAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")

@@ -63,9 +63,23 @@ public class Indicate {
             print("Lab")
             lab.hideIndicator()
         case .normal:
-            print("Nor")
+            normal.hideIndicator()
         }
     }
+    
+    
+    //TODO: Still need to work out
+    public  func stopIndicatorAndFade(_ duration: TimeInterval){
+        let indicateType = Indicate.activityType
+        switch  indicateType{
+        case .labrinth:
+            print("Lab")
+            lab.hideIndicator()
+        case .normal:
+            normal.hideIndicatorAndFade(withDuration: duration)
+        }
+    }
+    
 
 }
 

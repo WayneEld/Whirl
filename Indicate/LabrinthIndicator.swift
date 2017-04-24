@@ -21,7 +21,6 @@ public class LabIndicator {
     static let lineWidth = CGFloat(1)
     static let lineColor = UIColor.black.cgColor
     static let labSize = CGFloat(30)
-    static let currentView = UIApplication.shared.windows[0].rootViewController
     static let drawDuration = CFTimeInterval(0)
     
     static var backDrop = UIView()
@@ -89,7 +88,7 @@ public class LabIndicator {
         //--Back Drop View
         let backDropView = UIView()
         let backDropSize = LabIndicator.labSize * 2.4
-        backDropView.frame = CGRect(x: (LabIndicator.currentView?.view.frame.size.width)!/2 - ((backDropSize)/2), y: (LabIndicator.currentView?.view.frame.size.height)!/2 - ((backDropSize)/2), width: (backDropSize), height: (backDropSize))
+        backDropView.frame = CGRect(x: (Indicate.currentView?.view.frame.size.width)!/2 - ((backDropSize)/2), y: (Indicate.currentView?.view.frame.size.height)!/2 - ((backDropSize)/2), width: (backDropSize), height: (backDropSize))
 
         
         backDropView.layer.borderWidth = 1
@@ -99,7 +98,7 @@ public class LabIndicator {
         backDropView.clipsToBounds = true
         
         //--Adding back drop view
-        LabIndicator.currentView?.view.addSubview(backDropView)
+        Indicate.currentView?.view.addSubview(backDropView)
         LabIndicator.backDrop = backDropView
         
         //--Adding blurred view to back drop
@@ -117,7 +116,7 @@ public class LabIndicator {
     func drawLab1(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
-        let circleCenter = CGPoint(x:  (LabIndicator.currentView?.view.frame.size.width)!/2, y:  (LabIndicator.currentView?.view.frame.size.height)!/2)
+        let circleCenter = CGPoint(x:  (Indicate.currentView?.view.frame.size.width)!/2, y:  (Indicate.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
         let startAngle = CGFloat(0)
         
@@ -133,9 +132,9 @@ public class LabIndicator {
         shapeLayer.strokeColor = LabIndicator.lineColor
         shapeLayer.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer)
         
         let rotationAnimation: CAAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -163,7 +162,7 @@ public class LabIndicator {
     func drawLab2(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
-        let circleCenter = CGPoint(x:  (LabIndicator.currentView?.view.frame.size.width)!/2, y:  (LabIndicator.currentView?.view.frame.size.height)!/2)
+        let circleCenter = CGPoint(x:  (Indicate.currentView?.view.frame.size.width)!/2, y:  (Indicate.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
         let startAngle = CGFloat(0)
         
@@ -179,9 +178,9 @@ public class LabIndicator {
         shapeLayer.strokeColor = LabIndicator.lineColor
         shapeLayer.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer)
         
         let rotationAnimation: CAAnimation = {
             let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -208,7 +207,7 @@ public class LabIndicator {
     //MARK: - Circle 3
     func drawLab3(size: CGFloat,  duration: Double){
         
-        let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
+        let circleCenter = CGPoint(x: (Indicate.currentView?.view.frame.size.width)!/2, y: (Indicate.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
         let startAngle = CGFloat(0)
         let endAngle = CGFloat(Float.pi/2)
@@ -242,9 +241,9 @@ public class LabIndicator {
         shapeLayer.strokeColor = LabIndicator.lineColor
         shapeLayer.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-       LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+       Indicate.currentView?.view.layer.addSublayer(shapeLayer)
         
         
         //--Shape 2
@@ -256,9 +255,9 @@ public class LabIndicator {
         shapeLayer2.strokeColor = LabIndicator.lineColor
         shapeLayer2.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer2.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer2.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer2.bounds =  shapeLayer2.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer2)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer2)
         
         //--Shape 3
         let shapeLayer3 = CAShapeLayer()
@@ -269,9 +268,9 @@ public class LabIndicator {
         shapeLayer3.strokeColor = LabIndicator.lineColor
         shapeLayer3.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer3.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer3.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer3.bounds =  shapeLayer3.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer3)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer3)
         
         //--Shape 4
         let shapeLayer4 = CAShapeLayer()
@@ -282,9 +281,9 @@ public class LabIndicator {
         shapeLayer4.strokeColor = LabIndicator.lineColor
         shapeLayer4.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer4.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer4.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer4.bounds =  shapeLayer4.frame
-       LabIndicator.currentView?.view.layer.addSublayer(shapeLayer4)
+       Indicate.currentView?.view.layer.addSublayer(shapeLayer4)
         
         
         let rotationAnimation: CAAnimation = {
@@ -352,7 +351,7 @@ public class LabIndicator {
     //MARK: - Circle 4
     func drawLab4(size: CGFloat,  duration: Double){
         
-        let circleCenter = CGPoint(x: (LabIndicator.currentView?.view.frame.size.width)!/2, y: (LabIndicator.currentView?.view.frame.size.height)!/2)
+        let circleCenter = CGPoint(x: (Indicate.currentView?.view.frame.size.width)!/2, y: (Indicate.currentView?.view.frame.size.height)!/2)
         let circleRadius = size
         let startAngle = CGFloat((Float.pi * 11)/6)
         let endAngle = CGFloat((Float.pi )/6)
@@ -392,9 +391,9 @@ public class LabIndicator {
         shapeLayer.strokeColor = LabIndicator.lineColor
         shapeLayer.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer)
         
         
         //--Shape 2
@@ -406,9 +405,9 @@ public class LabIndicator {
         shapeLayer2.strokeColor = LabIndicator.lineColor
         shapeLayer2.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer2.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer2.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer2.bounds =  shapeLayer2.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer2)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer2)
         
         //--Shape 3
         let shapeLayer3 = CAShapeLayer()
@@ -419,9 +418,9 @@ public class LabIndicator {
         shapeLayer3.strokeColor = LabIndicator.lineColor
         shapeLayer3.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer3.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer3.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer3.bounds =  shapeLayer3.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer3)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer3)
         
         //--Shape 4
         let shapeLayer4 = CAShapeLayer()
@@ -432,9 +431,9 @@ public class LabIndicator {
         shapeLayer4.strokeColor = LabIndicator.lineColor
         shapeLayer4.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer4.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer4.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer4.bounds =  shapeLayer4.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer4)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer4)
         
         //--Shape 5
         let shapeLayer5 = CAShapeLayer()
@@ -444,9 +443,9 @@ public class LabIndicator {
         shapeLayer5.strokeColor = LabIndicator.lineColor
         shapeLayer5.lineWidth = LabIndicator.lineWidth
         
-        shapeLayer5.frame = CGRect(x: ((LabIndicator.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((LabIndicator.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer5.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer5.bounds =  shapeLayer5.frame
-        LabIndicator.currentView?.view.layer.addSublayer(shapeLayer5)
+        Indicate.currentView?.view.layer.addSublayer(shapeLayer5)
         
         
         let rotationAnimation: CAAnimation = {
