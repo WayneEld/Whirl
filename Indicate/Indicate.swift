@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
+
+//TODO: Make color wheel
 
 public enum IndicateType {
      case labrinth
@@ -24,17 +27,17 @@ public class Indicate {
     
      static var activityType = IndicateType(fromRawValue: .normal)
      let lab = LabIndicator()
+    let normal = Normal()
      static  var indicateType = Indicate.activityType
-
+    static let currentView = UIApplication.shared.windows[0].rootViewController
 
     public init(indicatorType: IndicateType){
         Indicate.activityType = indicatorType
     }
     
-    func startIndicator(){
+   public func startIndicator(){
             constructIndicatorAndStart()
      }
-    
     
   private func constructIndicatorAndStart(){
         
@@ -47,35 +50,23 @@ public class Indicate {
             lab.showIndicator()
 
         case .normal:
-            print("Nor")
+            normal.showIndicator()
 
         }
 
     }
     
-    
   public  func stopIndicator(){
-    
-        
         let indicateType = Indicate.activityType
         switch  indicateType{
         case .labrinth:
             print("Lab")
-
-            
             lab.hideIndicator()
-            
         case .normal:
             print("Nor")
-    
         }
-
-    
-    
     }
-    
-
-
-
 
 }
+
+

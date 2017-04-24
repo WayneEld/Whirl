@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+
+//TODO: Change to private. Oublic is from inicate class
+//TODO: Make all funcs private
+//TODO: Move current view call to call from Indicate class
 public class LabIndicator {
     
     public init() {}
