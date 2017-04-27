@@ -4,25 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Indicate.xcscheme</key>
+		<key>Pods-Indicate.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>IndicateDemo.xcscheme</key>
+		<key>Pods-IndicateDemo.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>indicate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D3EBBC81EB2430100FE08E3</key>
+		<key>03A0F21E5E8AAC1BE42C474246C698D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D729D8F1E7C145A0008AABD</key>
+		<key>3201962D6A9D4105721B52C53C69D9A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4D9F3E7461DE9A4E05A376200AF28C50</key>
 		<dict>
 			<key>primary</key>
 			<true/>

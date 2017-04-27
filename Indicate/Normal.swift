@@ -12,10 +12,10 @@ class Normal {
     
     
     private static let lineWidth = CGFloat(1)
-    static let lineColor = UIColor.black.cgColor
-    static let size = CGFloat(70)
-    static let drawDuration = CFTimeInterval(0)
-    static var circle1 = CAShapeLayer()
+   private static let lineColor = UIColor.black.cgColor
+    private static let size = CGFloat(70)
+    private static let drawDuration = CFTimeInterval(0) //TODO: May need to remove draw duration, it does not work
+    private static var circle1 = CAShapeLayer()
         static var backDrop = UIView()
     
     
@@ -128,7 +128,7 @@ class Normal {
         
         shapeLayer.strokeEnd = endAngle
         let drawAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        drawAnimation.duration = LabIndicator.drawDuration
+        drawAnimation.duration = Normal.drawDuration
         drawAnimation.fromValue = Int(startAngle)
         drawAnimation.toValue = Int(endAngle)
         drawAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
