@@ -15,15 +15,10 @@
 		3D77A8F61EAE3E6400F2F717 /* Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77A8F51EAE3E6400F2F717 /* Normal.swift */; };
 		3DA22A701E851AC4004EBDC7 /* LabrinthIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA22A6F1E851AC4004EBDC7 /* LabrinthIndicator.swift */; };
 		3DC5CAFD1EA1FE88007BD82C /* Indicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC5CAFC1EA1FE88007BD82C /* Indicate.swift */; };
+		A142BE459203E81782D5E61F /* Pods_Indicate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB6B2C96421C553B8168C53 /* Pods_Indicate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D3EBBCB1EB2430100FE08E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D3EBBCD1EB2430100FE08E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3D3EBBD01EB2430100FE08E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3D3EBBD21EB2430100FE08E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3D3EBBD51EB2430100FE08E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3D3EBBD71EB2430100FE08E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D729D901E7C145A0008AABD /* Indicate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Indicate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D729D931E7C145A0008AABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D729D951E7C145A0008AABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +29,9 @@
 		3D77A8F51EAE3E6400F2F717 /* Normal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Normal.swift; sourceTree = "<group>"; };
 		3DA22A6F1E851AC4004EBDC7 /* LabrinthIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabrinthIndicator.swift; sourceTree = "<group>"; };
 		3DC5CAFC1EA1FE88007BD82C /* Indicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicate.swift; sourceTree = "<group>"; };
+		574CC0B89E5BE5C16B680C71 /* Pods-Indicate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Indicate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Indicate/Pods-Indicate.release.xcconfig"; sourceTree = "<group>"; };
+		7085DB936F81E8297E442D44 /* Pods-Indicate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Indicate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Indicate/Pods-Indicate.debug.xcconfig"; sourceTree = "<group>"; };
+		FAB6B2C96421C553B8168C53 /* Pods_Indicate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Indicate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,31 +39,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A142BE459203E81782D5E61F /* Pods_Indicate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D3EBBCA1EB2430100FE08E3 /* IndicateDemo */ = {
-			isa = PBXGroup;
-			children = (
-				3D3EBBCB1EB2430100FE08E3 /* AppDelegate.swift */,
-				3D3EBBCD1EB2430100FE08E3 /* ViewController.swift */,
-				3D3EBBCF1EB2430100FE08E3 /* Main.storyboard */,
-				3D3EBBD21EB2430100FE08E3 /* Assets.xcassets */,
-				3D3EBBD41EB2430100FE08E3 /* LaunchScreen.storyboard */,
-				3D3EBBD71EB2430100FE08E3 /* Info.plist */,
-			);
-			path = IndicateDemo;
-			sourceTree = "<group>";
-		};
 		3D729D871E7C145A0008AABD = {
 			isa = PBXGroup;
 			children = (
 				3D729D921E7C145A0008AABD /* Indicate */,
-				3D3EBBCA1EB2430100FE08E3 /* IndicateDemo */,
 				3D729D911E7C145A0008AABD /* Products */,
+				FEE966E7F8F937A292CA49F4 /* Pods */,
+				5CC59E1B1F825F1AFFD15028 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +78,23 @@
 				3D729D9F1E7C145A0008AABD /* Info.plist */,
 			);
 			path = Indicate;
+			sourceTree = "<group>";
+		};
+		5CC59E1B1F825F1AFFD15028 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6B2C96421C553B8168C53 /* Pods_Indicate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FEE966E7F8F937A292CA49F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7085DB936F81E8297E442D44 /* Pods-Indicate.debug.xcconfig */,
+				574CC0B89E5BE5C16B680C71 /* Pods-Indicate.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,22 +232,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3D3EBBCF1EB2430100FE08E3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D3EBBD01EB2430100FE08E3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3D3EBBD41EB2430100FE08E3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D3EBBD51EB2430100FE08E3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		3D729D971E7C145A0008AABD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -356,6 +344,7 @@
 		};
 		3D729DA31E7C145A0008AABD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7085DB936F81E8297E442D44 /* Pods-Indicate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 495M282LUS;
@@ -369,6 +358,7 @@
 		};
 		3D729DA41E7C145A0008AABD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 574CC0B89E5BE5C16B680C71 /* Pods-Indicate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 495M282LUS;
