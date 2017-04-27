@@ -1,6 +1,0 @@
-framework module indicate {
-  umbrella header "indicate-umbrella.h"
-
-  export *
-  module * { export * }
-}
