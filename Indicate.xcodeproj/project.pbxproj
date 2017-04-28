@@ -80,12 +80,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D729DA21E7C145A0008AABD /* Build configuration list for PBXNativeTarget "Indicate" */;
 			buildPhases = (
-				A1C953B45453840679576936 /* [CP] Check Pods Manifest.lock */,
 				3D729D8C1E7C145A0008AABD /* Sources */,
 				3D729D8D1E7C145A0008AABD /* Frameworks */,
 				3D729D8E1E7C145A0008AABD /* Resources */,
-				FE6F0D37F9DEC7F5F12689E0 /* [CP] Embed Pods Frameworks */,
-				D75A5B3DBD363B00AC1C80A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,54 +140,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A1C953B45453840679576936 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D75A5B3DBD363B00AC1C80A2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Indicate/Pods-Indicate-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE6F0D37F9DEC7F5F12689E0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Indicate/Pods-Indicate-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D729D8C1E7C145A0008AABD /* Sources */ = {
