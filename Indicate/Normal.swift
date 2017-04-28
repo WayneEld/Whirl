@@ -56,14 +56,14 @@ class Normal {
     //MARK: - Back Drop
     private  func drawBackDrop(){
         
-        let currentView = Indicate.currentView
+       
         
         //TODO: Guards for current view
         
         //--Back Drop View
         let backDropView = UIView()
-        let backDropX = (currentView?.view.frame.size.width)!/2
-        let backDropY = (currentView?.view.frame.size.height)!/2
+        let backDropX = (Indicate.currentView?.view.frame.size.width)!/2
+        let backDropY = (Indicate.currentView?.view.frame.size.height)!/2
         let backDropHeight = CGFloat(Normal.size)
         let backDropWidth = CGFloat(Normal.size)
         backDropView.frame = CGRect(x: backDropX - (backDropWidth/2), y: backDropY - (backDropHeight/2), width: backDropHeight, height: backDropWidth)
