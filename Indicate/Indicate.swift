@@ -22,6 +22,7 @@ public enum IndicateType {
     
 }
 
+let currentView = UIApplication.shared.windows[0].rootViewController
 
 public class Indicate {
     
@@ -29,7 +30,6 @@ public class Indicate {
      let lab = LabIndicator()
     let normal = Normal()
      static  var indicateType = Indicate.activityType
-    public static let currentView = UIApplication.shared.windows[0].rootViewController
 
     public init(indicatorType: IndicateType){
         Indicate.activityType = indicatorType

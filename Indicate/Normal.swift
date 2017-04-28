@@ -62,8 +62,8 @@ class Normal {
         
         //--Back Drop View
         let backDropView = UIView()
-        let backDropX = (Indicate.currentView?.view.frame.size.width)!/2
-        let backDropY = (Indicate.currentView?.view.frame.size.height)!/2
+        let backDropX = (currentView?.view.frame.size.width)!/2
+        let backDropY = (currentView?.view.frame.size.height)!/2
         let backDropHeight = CGFloat(Normal.size)
         let backDropWidth = CGFloat(Normal.size)
         backDropView.frame = CGRect(x: backDropX - (backDropWidth/2), y: backDropY - (backDropHeight/2), width: backDropHeight, height: backDropWidth)
@@ -76,7 +76,7 @@ class Normal {
         backDropView.clipsToBounds = true
         
         //--Adding back drop view
-        Indicate.currentView?.view.addSubview(backDropView)
+        currentView?.view.addSubview(backDropView)
         Normal.backDrop = backDropView
         
         //--Adding blurred view to back drop
@@ -94,7 +94,7 @@ class Normal {
     private func constructCircle(percentage: Double, size: CGFloat,  duration: Double){
         
         let percentCircle = percentage
-        let circleCenter = CGPoint(x:  (Indicate.currentView?.view.frame.size.width)!/2, y:  (Indicate.currentView?.view.frame.size.height)!/2)
+        let circleCenter = CGPoint(x:  (currentView?.view.frame.size.width)!/2, y:  (currentView?.view.frame.size.height)!/2)
         let circleRadius = size
         let startAngle = CGFloat(0)
         
@@ -110,9 +110,9 @@ class Normal {
         shapeLayer.strokeColor = Normal.lineColor
         shapeLayer.lineWidth = Normal.lineWidth
         
-        shapeLayer.frame = CGRect(x: ((Indicate.currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((Indicate.currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
+        shapeLayer.frame = CGRect(x: ((currentView?.view.frame.size.width)!/2) - (circleRadius/2), y: ((currentView?.view.frame.size.height)!/2) - (circleRadius/2), width: circleRadius, height: circleRadius)
         shapeLayer.bounds =  shapeLayer.frame
-        Indicate.currentView?.view.layer.addSublayer(shapeLayer)
+        currentView?.view.layer.addSublayer(shapeLayer)
         Normal.circle1 = shapeLayer
         
         let rotationAnimation: CAAnimation = {
