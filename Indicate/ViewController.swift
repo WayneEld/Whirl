@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        let activityIndicator = Indicate(indicatorType: .normal)
-        activityIndicator.startIndicator()
+//        let activityIndicator = Indicate(indicatorType: .normal)
+//        activityIndicator.startIndicator()
         
         
         
