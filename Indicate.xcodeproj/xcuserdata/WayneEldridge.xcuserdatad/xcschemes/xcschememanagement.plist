@@ -4,19 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Indicate Demo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Indicate.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>IndicateDemo.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3D06E77E1ECDE370001EAC6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3D3EBBC81EB2430100FE08E3</key>
 		<dict>
 			<key>primary</key>

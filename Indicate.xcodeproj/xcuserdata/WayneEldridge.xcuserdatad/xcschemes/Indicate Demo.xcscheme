@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D3EBBC81EB2430100FE08E3"
-               BuildableName = "IndicateDemo.app"
-               BlueprintName = "IndicateDemo"
+               BlueprintIdentifier = "3D06E77E1ECDE370001EAC6C"
+               BuildableName = "Indicate Demo.app"
+               BlueprintName = "Indicate Demo"
                ReferencedContainer = "container:Indicate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D3EBBC81EB2430100FE08E3"
-            BuildableName = "IndicateDemo.app"
-            BlueprintName = "IndicateDemo"
+            BlueprintIdentifier = "3D06E77E1ECDE370001EAC6C"
+            BuildableName = "Indicate Demo.app"
+            BlueprintName = "Indicate Demo"
             ReferencedContainer = "container:Indicate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D3EBBC81EB2430100FE08E3"
-            BuildableName = "IndicateDemo.app"
-            BlueprintName = "IndicateDemo"
+            BlueprintIdentifier = "3D06E77E1ECDE370001EAC6C"
+            BuildableName = "Indicate Demo.app"
+            BlueprintName = "Indicate Demo"
             ReferencedContainer = "container:Indicate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D3EBBC81EB2430100FE08E3"
-            BuildableName = "IndicateDemo.app"
-            BlueprintName = "IndicateDemo"
+            BlueprintIdentifier = "3D06E77E1ECDE370001EAC6C"
+            BuildableName = "Indicate Demo.app"
+            BlueprintName = "Indicate Demo"
             ReferencedContainer = "container:Indicate.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

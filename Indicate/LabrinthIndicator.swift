@@ -6,7 +6,7 @@
 //  Copyright © 2017 Wayne Eldridge. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 
 
@@ -23,6 +23,8 @@ import UIKit
     private static var backDrop = UIView()
     private static var circle1 = CAShapeLayer()
     private static var circle2 = CAShapeLayer()
+    
+    var currentView = UIApplication.shared.windows[0].rootViewController
     
     //MARK: - Circle 3 Strcuture
     private struct Circle3 {

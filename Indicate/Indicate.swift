@@ -22,7 +22,7 @@ public enum IndicateType {
     
 }
 
-let currentView = UIApplication.shared.windows[0].rootViewController
+public var currentView = UIApplication.shared.windows[0].rootViewController
 
 public class Indicate {
     
