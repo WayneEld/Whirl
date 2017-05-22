@@ -6,6 +6,6 @@ Pod::Spec.new do |spec|
   spec.authors      = { 'Wayne Eldridge' => 'wayne.eldridge.dev@gmail.com' }
   spec.summary      = 'A variety of indicators for all apps.'
   spec.source       = { :git => 'https://github.com/WayneEld/Indicate.git', :tag => 'v0.0.4' }
-spec.source_files = 'Indicate/*{ViewController.swift}'
+spec.source_files = 'Indicate/*'
   spec.ios.deployment_target = '10.2'
 end
