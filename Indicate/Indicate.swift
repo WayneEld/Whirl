@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-//TODO: Make color wheel
+//TODO: Make color wheel //
 
 public enum IndicateType {
      case labrinth
