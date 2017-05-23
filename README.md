@@ -1,11 +1,11 @@
 # Whirl
 A variety of activity indicators for apps of any kind.
 
-## Indicator Types:
+### Indicator Types:
 - Normal
 - Labrinth
 
-
+### How to use:
 ```swift
 import Whirl
 ```
