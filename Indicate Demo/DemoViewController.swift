@@ -15,8 +15,9 @@ class DemoViewController: UIViewController {
         super.viewDidLoad()
 
         
-        let indicator = Indicate(indicatorType: .normal)
+        let indicator = Indicate(indicatorType: .labrinth)
         indicator.startIndicator()
+        
         
     }
     
