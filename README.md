@@ -1,2 +1,2 @@
-# Indicate
-A variety of indicator for all types of apps.
+# Whirl
+A variety of activity indicators.
