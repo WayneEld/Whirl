@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Indicate.xcodeproj">
+      location = "self:/Users/WayneEldridge/Apps/Indicate/Whirl.xcodeproj">
    </FileRef>
 </Workspace>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3D729D8F1E7C145A0008AABD"
-               BuildableName = "Indicate.app"
-               BlueprintName = "Indicate"
-               ReferencedContainer = "container:Indicate.xcodeproj">
+               BuildableName = "Whirl.app"
+               BlueprintName = "Whirl"
+               ReferencedContainer = "container:Whirl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D729D8F1E7C145A0008AABD"
-            BuildableName = "Indicate.app"
-            BlueprintName = "Indicate"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BuildableName = "Whirl.app"
+            BlueprintName = "Whirl"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D729D8F1E7C145A0008AABD"
-            BuildableName = "Indicate.app"
-            BlueprintName = "Indicate"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BuildableName = "Whirl.app"
+            BlueprintName = "Whirl"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3D729D8F1E7C145A0008AABD"
-            BuildableName = "Indicate.app"
-            BlueprintName = "Indicate"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BuildableName = "Whirl.app"
+            BlueprintName = "Whirl"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

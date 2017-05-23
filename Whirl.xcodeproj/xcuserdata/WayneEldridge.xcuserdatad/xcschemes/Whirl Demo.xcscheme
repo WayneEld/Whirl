@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3DCC2BB91ED31E8E000AFBDB"
-               BuildableName = "Indicate Demo.app"
-               BlueprintName = "Indicate Demo"
-               ReferencedContainer = "container:Indicate.xcodeproj">
+               BlueprintIdentifier = "3DCC2BCF1ED31ED4000AFBDB"
+               BuildableName = "Whirl Demo.app"
+               BlueprintName = "Whirl Demo"
+               ReferencedContainer = "container:Whirl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DCC2BB91ED31E8E000AFBDB"
-            BuildableName = "Indicate Demo.app"
-            BlueprintName = "Indicate Demo"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BlueprintIdentifier = "3DCC2BCF1ED31ED4000AFBDB"
+            BuildableName = "Whirl Demo.app"
+            BlueprintName = "Whirl Demo"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DCC2BB91ED31E8E000AFBDB"
-            BuildableName = "Indicate Demo.app"
-            BlueprintName = "Indicate Demo"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BlueprintIdentifier = "3DCC2BCF1ED31ED4000AFBDB"
+            BuildableName = "Whirl Demo.app"
+            BlueprintName = "Whirl Demo"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3DCC2BB91ED31E8E000AFBDB"
-            BuildableName = "Indicate Demo.app"
-            BlueprintName = "Indicate Demo"
-            ReferencedContainer = "container:Indicate.xcodeproj">
+            BlueprintIdentifier = "3DCC2BCF1ED31ED4000AFBDB"
+            BuildableName = "Whirl Demo.app"
+            BlueprintName = "Whirl Demo"
+            ReferencedContainer = "container:Whirl.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
