@@ -9,7 +9,7 @@ A variety of activity indicators for apps of any kind.
 ### Demo:
 ![Simulator Screen Shot 29 May 2017, 11.12.22 AM.png](https://postimg.org/image/nr1l8ezcz/ "Demo Indicator")
 
-![Demo-Indicator-Labyrinth](https://raw.github.com/WayneEld/Whirl/master/Demo Assets/Demo-Indicator-Labyrinth.png)
+![Demo-Indicator-Labyrinth](https://raw.github.com/WayneEld/Whirl/master/Demo-Assets/Demo-Indicator-Labyrinth.png)
 
 
 ### How to install:
