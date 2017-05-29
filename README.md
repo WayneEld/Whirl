@@ -22,7 +22,7 @@ import Whirl
 
 ```swift
 //--Initialize Indicator
-let indicator = Indicate(indicatorType: .normal)
+let indicator = Indicate(indicatorType: .labyrinth)
 
 //--Start Indicator
 indicator.startIndicator()
