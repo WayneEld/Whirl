@@ -13,7 +13,7 @@ import UIKit
 //TODO: Make color wheel //
 
 public enum IndicateType {
-     case labrinth
+     case labyrinth
     case normal
     
     init(fromRawValue: IndicateType){
@@ -44,7 +44,7 @@ public class Indicate {
            let indicateType = Indicate.activityType
     
         switch  indicateType{
-        case .labrinth:
+        case .labyrinth:
             print("Lab start")
        
             lab.showIndicator()
@@ -59,7 +59,7 @@ public class Indicate {
   public  func stopIndicator(){
         let indicateType = Indicate.activityType
         switch  indicateType{
-        case .labrinth:
+        case .labyrinth:
             print("Lab")
             lab.hideIndicator()
         case .normal:
@@ -72,7 +72,7 @@ public class Indicate {
     public  func stopIndicatorAndFade(_ duration: TimeInterval){
         let indicateType = Indicate.activityType
         switch  indicateType{
-        case .labrinth:
+        case .labyrinth:
             print("Lab")
             lab.hideIndicator()
         case .normal:

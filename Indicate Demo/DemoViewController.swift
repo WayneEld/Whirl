@@ -7,6 +7,8 @@
 //
 
 import UIKit
+//--Import Whirl into your personal projects.
+//import Whirl
 
 
 class DemoViewController: UIViewController {
@@ -15,7 +17,7 @@ class DemoViewController: UIViewController {
         super.viewDidLoad()
 
         
-        let indicator = Indicate(indicatorType: .labrinth)
+        let indicator = Indicate(indicatorType: .labyrinth)
         indicator.startIndicator()
         
         

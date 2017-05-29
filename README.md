@@ -5,6 +5,11 @@ A variety of activity indicators for apps of any kind.
 - Normal
 - Labrinth
 
+### How to install:
+```swift
+pod 'Whirl'
+```
+
 ### How to use:
 ```swift
 import Whirl
