@@ -10,12 +10,12 @@ A variety of activity indicators for apps of any kind.
 ![Demo-Indicator-Labyrinth](https://raw.github.com/WayneEld/Whirl/master/Demo-Assets/Demo-Indicator-Labyrinth.png)
 
 
-### How to install:
+## How to install:
 ```swift
 pod 'Whirl'
 ```
 
-### How to use:
+## How to use:
 ```swift
 import Whirl
 ```
